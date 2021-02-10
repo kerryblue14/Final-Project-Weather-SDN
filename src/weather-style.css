@@ -1,6 +1,10 @@
-h1 {
-  color: blue;
+body {
+  background-image: linear-gradient(to bottom, #5ee7df 0%, #b490ca 100%);
+  margin: 0 auto;
 }
-h2 {
-  color: purple;
+
+.cardBack {
+  display: block;
+  background-color: rgba(255, 255, 255, 0.247);
+  margin: 30px;
 }
