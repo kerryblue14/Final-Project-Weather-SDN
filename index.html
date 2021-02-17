@@ -14,6 +14,9 @@
       src="https://kit.fontawesome.com/7d49f1babf.js"
       crossorigin="anonymous"
     ></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+   
     <link rel="stylesheet" href="src/weather-style.css" />
 
     <title>🌈🌦️Weather Final- SDN</title>
@@ -35,27 +38,27 @@
        </br>
        <div class="row bg justify-content-center">
          <div class="todayBox">
-           <h1 class= "city" id= submitCity>City, Country</h1>
+           <h1 id= "submitCity"></h1>
            <ul>
              <li>Day, Date and Time HH:MM</li>
-             <li>clear</li>
+             <li id="description"></li>
             </ul>
             <div class="row">
               <div class="col-6">
                 <div class="current">
                     <div class="clearfix weather-temperature">
                       <span> 
-                          <i class="fas fa-cloud-sun float-left"></i><div class= "float-left"><strong>13</strong> <small class="units"> <a href="#" id="celcius-link">℃</a> | <a href="#" id="fahrenheit-link">°F</a></small></div>
+                          <i class="fas fa-cloud-sun float-left"></i><div class= "float-left"><strong id= "temperature">13</strong> <small class="units"> <a href="#" id="celcius-link">℃</a> | <a href="#" id="fahrenheit-link">°F</a></small></div>
                         </span>
                       </div>
                 </div>
               </div>
               
-              <div class="col-6"> 
+              <div class="col-6 weather-factors"> 
                 <ul>
                   <li>Preciptation: 10%</li>
-                  <li>Humidity:30%</li>
-                  <li>Wind Speed: 35 kmph</li>
+                  <li>Humidity: <span id="humidity"></span>%</li>
+                  <li>Wind Speed: <span id ="speed"></span> KMPH</li>
                 </ul> 
               </div>    
               

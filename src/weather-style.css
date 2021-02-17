@@ -16,14 +16,14 @@ h1 {
 }
 ul {
 	margin: 0;
-	padding: 0;
+	padding: 0px;
 }
 
 li {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	bottom: 25px;
+	text-transform: capitalize;
 }
 
 p {
@@ -31,6 +31,7 @@ p {
 	margin: 0 auto;
 	padding: 20px;
 	text-align: center;
+	font-size: 10px;
 }
 
 .todayBox {
@@ -47,17 +48,22 @@ p {
 }
 .location-button {
 	left: 13px;
-	padding: 2px;
+	padding: 6px, 3px, 6px, 3px;
+	margin: 0 auto;
 }
 
 .weather-temperature .fa-cloud-sun {
 	font-size: 36px;
+	padding: 20 20 20 20;
 }
 .weather-temperature strong {
 	font-size: 38px;
 	font-weight: 600;
 	line-height: 1;
 	bottom: 20px;
+}
+.weather-factors {
+	top: 5px;
 }
 .weather-temperature .units {
 	position: relative;
