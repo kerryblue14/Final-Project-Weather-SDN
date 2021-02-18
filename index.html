@@ -40,25 +40,23 @@
          <div class="todayBox">
            <h1 id= "submitCity"></h1>
            <ul>
-             <li>Day, Date and Time HH:MM</li>
+             <li id= "date">Day, Date and Time HH:MM</li>
              <li id="description"></li>
             </ul>
             <div class="row">
               <div class="col-6">
-                <div class="current">
-                    <div class="clearfix weather-temperature">
+                <div class="current weather-temperature float-left">
                       <span> 
-                          <i class="fas fa-cloud-sun float-left"></i><div class= "float-left"><strong id= "temperature">13</strong> <small class="units"> <a href="#" id="celcius-link">℃</a> | <a href="#" id="fahrenheit-link">°F</a></small></div>
+                          <i class="fas fa-cloud-sun"></i><strong id= "temperature">13</strong> <small class="units"> <a href="#" id="celcius-link">℃</a> | <a href="#" id="fahrenheit-link">°F</a></small>
                         </span>
-                      </div>
                 </div>
               </div>
               
               <div class="col-6 weather-factors"> 
-                <ul>
+                <ul id =  "conditions">
                   <li>Preciptation: 10%</li>
                   <li>Humidity: <span id="humidity"></span>%</li>
-                  <li>Wind Speed: <span id ="speed"></span> KMPH</li>
+                  <li>Wind Speed: <span id ="speed"></span> kmph</li>
                 </ul> 
               </div>    
               

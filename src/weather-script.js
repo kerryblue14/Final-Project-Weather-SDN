@@ -1,3 +1,42 @@
+function formatDate(timestamp) {
+	let date = new Date(timestamp);
+	let days = [
+		"Sunday",
+		"Monday",
+		"Tuesday",
+		"Wednesday",
+		"Thursday",
+		"Friday",
+		"Saturday",
+	];
+
+	let months = [
+		"January",
+		"Febuary",
+		"March",
+		"April",
+		"May",
+		"June",
+		"July",
+		"August",
+		"September",
+		"October",
+		"November",
+		"December",
+	];
+
+	let day = days[date.getDay()];
+	let hour = [date.getHours()];
+	let minute = [date.getMinutes()];
+	let month = months[date.getMonth()];
+	let dayDate = [date.getDate()];
+	return (currentDate = `${day}, ${dayDate} ${month} ${hour}:${minute}`);
+}
+
+let now = new Date();
+let currentDate = document.querySelector("#date");
+currentDate.innerHTML = formatDate(now);
+
 function currentTemperature(response) {
 	console.log(response.data);
 	let temperatureElement = document.querySelector("#temperature");
