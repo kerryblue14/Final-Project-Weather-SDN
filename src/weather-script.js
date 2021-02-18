@@ -27,7 +27,13 @@ function formatDate(timestamp) {
 
 	let day = days[date.getDay()];
 	let hour = [date.getHours()];
+	if (hour < 10) {
+		hour = "0" + hour;
+	}
 	let minute = [date.getMinutes()];
+	if (minute < 10) {
+		minute = "0" + minute;
+	}
 	let month = months[date.getMonth()];
 	let dayDate = [date.getDate()];
 	return (currentDate = `${day}, ${dayDate} ${month} ${hour}:${minute}`);
