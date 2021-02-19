@@ -44,7 +44,6 @@ let currentDate = document.querySelector("#date");
 currentDate.innerHTML = formatDate(now);
 
 function currentTemperature(response) {
-	console.log(response.data);
 	let temperatureElement = document.querySelector("#temperature");
 	let cityElement = document.querySelector("#submitCity");
 	let descriptionElement = document.querySelector("#description");
