@@ -35,19 +35,19 @@ p {
 }
 
 .todayBox {
-	background-color: rgba(255, 255, 255, 0.654);
+	background-color: rgba(255, 255, 255, 0.386);
 	border: rgb(10, 10, 94);
 	padding: 15px;
 	border-radius: 0 0 5px 5px;
 }
 .search {
-	background-color: rgba(255, 255, 255, 0.654);
+	background-color: rgba(255, 255, 255, 0.386);
 	border: rgb(10, 10, 94);
 	padding: 10px;
 	border-radius: 5px 5px 0 0;
 }
 .forecast {
-	background-color: rgba(255, 255, 255, 0.418);
+	background-color: rgba(255, 255, 255, 0.386);
 	border: rgb(10, 10, 94);
 	margin: 10px 10px 10px 10px;
 	padding: 15px;
@@ -60,18 +60,15 @@ p {
 	margin: 0 auto;
 }
 
-li .description {
+.description li {
 	text-transform: capitalize;
 }
 
-.weather-temperature .fa-cloud-sun {
-	font-size: 36px;
-	padding: 5px;
-}
 .weather-temperature strong {
-	font-size: 38px;
+	font-size: 45px;
 	font-weight: 600;
 	line-height: 1;
+	top: 30px;
 	bottom: 20px;
 }
 .weather-factors {
