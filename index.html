@@ -22,7 +22,7 @@
     <title>🌈🌦️Weather Final- SDN</title>
   </head>
   <body>
-    <div class="container">
+    <div class="container-fluid">
       </br>
       <div class="cardBack" id= "shadow">
         <div class="row bg justify-content-center " >
@@ -47,7 +47,7 @@
               <div class="col-6">
                 <div class="current weather-temperature float-left">
                       <span> 
-                          <i class="fas fa-cloud-sun"></i><strong id= "temperature">13</strong> <small class="units"> <a href="#" id="celcius-link">℃</a> | <a href="#" id="fahrenheit-link">°F</a></small>
+                          <i class="fas fa-cloud-sun"></i><strong id= "temperature">13</strong> <small class="units"> <a href="#" id="celcius-link">℃</a> <small id="units-divider">|</small> <a href="#" id="fahrenheit-link">°F</a></small>
                         </span>
                 </div>
               </div>
@@ -66,7 +66,7 @@
         </br> 
         <div class="row bg justify-content-center">
           <div class="forecast">
-            <div class="row">
+            <div class="row row-cols-auto">
               <div class="card-body">
                   <div class="col-2">
                   <ul id="forecast-tomorrow">
@@ -76,16 +76,14 @@
                     <li>temperature</li>
                   </ul>
                   </div>
-              </div>
-                <div class="col-2">
-                <ul id="forecast-day3">
-                  <li>Tommorow</li>
-                  <li>image</li>
-                  <li>description</li>
-                  <li>temperature</li>
-                </ul>
-             </div>
-
+                  <div class="col-2">
+                  <ul id="forecast-day3">
+                    <li>Tommorow</li>
+                    <li>image</li>
+                    <li>description</li>
+                    <li>temperature</li>
+                  </ul>
+                </div>
               </div>
             </div>
            

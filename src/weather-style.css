@@ -17,14 +17,13 @@ h1 {
 ul {
 	margin: 0;
 	padding: 0px;
-	text-transform: initial;
 }
 
 li {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	text-transform: initial;
+	text-transform: capitalize;
 }
 
 p {
@@ -61,7 +60,7 @@ p {
 	margin: 0 auto;
 }
 
-.description {
+li .description {
 	text-transform: capitalize;
 }
 
@@ -82,4 +81,5 @@ p {
 	position: relative;
 	font-size: 16px;
 	top: -16px;
+	text-decoration: none;
 }
