@@ -69,3 +69,25 @@ let apiKey = "350541b21f9e750e54359106bf7f6f0d";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
 
 axios.get(apiUrl).then(currentTemperature);
+
+function searchWeather(city) {
+	let apiKey = "70b7d9657fab85757e7a28d70b47e52f";
+	let units = "metric";
+	let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+	axios.get(apiUrl).then(currentTemperature);
+}
+
+function searchCity(event) {
+	event.preventDefault();
+	let submitCity = document.querySelector("#search-input");
+	let h1 = document.querySelector("h1");
+	if (submitCity) {
+		h1.innerHTML = `${submitCity.value}`;
+		searchWeather(submitCity.value);
+	} else {
+		h1.innerHTML = null;
+	}
+}
+
+let form = document.querySelector("#city-selector");
+form.addEventListener("submit", searchCity);

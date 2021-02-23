@@ -28,10 +28,18 @@
         <div class="row bg justify-content-center " >
           <div class="col">
             <div class="search">
-            <form class="header" id= "city-selector">
-              <input type="search" id= "search-text-input" placeholder="Please chose your city" autofocus="on" autocomplete="off" />
-              <input type="submit" id= "search-form" placeholder="Search"  />    
-              <button type="button" class="btn btn-primary" id="location-button">Current Location</button> 
+            <form class="form-control" id= "city-selector">
+              <div class="row">
+                <div class="col-6">
+                  <input type="search" class="form-control"  id= "search-input" placeholder="Please chose your city" autofocus="on" autocomplete="off" />
+                </div>
+                <div class="col-2">
+                  <input type="submit" class="btn btn-outline-primary" id= "search-form" placeholder="Search"  />    
+                </div>
+                <div class="col-4">
+                  <button type="button" class="btn btn-primary" id="location-button">Current Location</button> 
+                </div>
+              </div>
             </form>
             </div> 
           </div>
