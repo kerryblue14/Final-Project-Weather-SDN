@@ -31,7 +31,6 @@ li {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	text-transform: capitalize;
 }
 
 p {
@@ -40,6 +39,11 @@ p {
 	padding: 20px;
 	text-align: center;
 	font-size: 10px;
+}
+
+#icon {
+	vertical-align: top;
+	line-height: 1;
 }
 
 .todayBox {
@@ -54,6 +58,19 @@ p {
 	padding: 10px;
 	border-radius: 5px 5px 0 0;
 }
+#search-input {
+	background-color: rgba(255, 255, 255, 0.386);
+	border: #0d6dfd4d solid 1px;
+	padding: 6px;
+	border-radius: 5px 5px 5 5;
+}
+
+#location-button {
+	left: 13px;
+	padding: 6px, 3px, 6px, 3px;
+	margin: 0 auto;
+}
+
 .forecast {
 	background-color: rgba(255, 255, 255, 0.386);
 	border: rgb(10, 10, 94);
@@ -62,31 +79,28 @@ p {
 	border-radius: 5px 5px 5px 5px;
 }
 
-.location-button {
-	left: 13px;
-	padding: 6px, 3px, 6px, 3px;
-	margin: 0 auto;
-}
-
-.description li {
+#description {
 	text-transform: capitalize;
 }
 
-.weather-temperature strong {
-	font-size: 65px;
+#temperature {
+	font-size: 75px;
 	font-weight: 600;
 	line-height: 1;
+	padding-top: 15px;
 }
 
 .weather-factors {
 	top: 35px;
 }
-.weather-temperature .units {
+
+.units {
 	position: relative;
 	font-size: 16px;
 	top: -16px;
 	text-decoration: none;
 }
+
 .forecast .forecast-day3 {
 	position: relative;
 }
