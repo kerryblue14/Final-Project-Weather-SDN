@@ -49,6 +49,7 @@ function currentTemperature(response) {
 	let cityElement = document.querySelector("#submitCity");
 	let descriptionElement = document.querySelector("#description");
 	let precipitationElement = document.querySelector("#precipitation");
+	let feelingElement = document.querySelector("#feeling");
 	let humidityElement = document.querySelector("#humidity");
 	let windspeedElement = document.querySelector("#speed");
 	let iconElement = document.querySelector("#icon");
@@ -58,6 +59,7 @@ function currentTemperature(response) {
 	temperatureElement.innerHTML = Math.round(celciusDisp);
 	cityElement.innerHTML = response.data.name;
 	descriptionElement.innerHTML = response.data.weather[0].description;
+	feelingElement.innerHTML = Math.round(response.data.main.feels_like);
 	humidityElement.innerHTML = response.data.main.humidity;
 	windspeedElement.innerHTML = Math.round(response.data.wind.speed);
 	iconElement.setAttribute(

@@ -111,5 +111,16 @@ p {
 }
 
 .forecast .forecast-day3 {
+	position: absolute;
+	top: 40px;
+	left: 20px;
+}
+
+#iconFuture {
+	max-width: 70px;
 	position: relative;
+}
+.forecast li {
+	line-height: 1;
+	top: -10px;
 }

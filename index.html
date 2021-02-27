@@ -65,7 +65,7 @@
               
               <div class="col-6 weather-factors"> 
                 <ul id =  "conditions">
-                  <li>Preciptation: <span id="preciptation"></span>%</li>
+                  <li>Feels like: <span id="feeling"></span>℃</li>
                   <li>Humidity: <span id="humidity"></span>%</li>
                   <li>Wind Speed: <span id ="speed"></span> kmph</li>
                 </ul> 
@@ -77,27 +77,85 @@
         </br> 
         <div class="row bg justify-content-center">
           <div class="forecast">
-            <div class="row row-cols-auto">
-              <div class="card-body">
-                  <div class="col-2">
-                  <ul id="forecast-tomorrow">
+            <div class="row align-items-start">
+              <div class="col-2">
+                <ul id="forecast-day3">
+                    <li><img src="https://openweathermap.org/img/wn/10d@2x.png"
+                        alt= "Clear"
+                        id="iconFuture"
+                        class="float-center">
+                    </li>
                     <li>Tommorow</li>
-                    <li>image</li>
                     <li>description</li>
-                    <li>temperature</li>
-                  </ul>
-                  </div>
-                  <div class="col-2">
-                  <ul id="forecast-day3">
-                    <li>Tommorow</li>
-                    <li>image</li>
-                    <li>description</li>
-                    <li>temperature</li>
-                  </ul>
-                </div>
+                    <li> <span><a id="temp-max">tmx</a> |
+                    <a id="temp-min">tmn</a></span></li>
+                  </ul>                            
               </div>
-            </div>
-           
+              <div class="col-2">
+                <ul id="forecast-day4">
+                    <li><img src="https://openweathermap.org/img/wn/10d@2x.png"
+                        alt= "Clear"
+                        id="iconFuture"
+                        class="float-center">
+                    </li>
+                    <li> Day 4</li>
+                    <li>description</li>
+                    <li><span><a id="temp-max">tmx</a> |
+                    <a id="temp-min">tmn</a></span></li>
+                  </ul>          
+              </div>
+              <div class="col-2">
+                <ul id="forecast-day5">
+                    <li><img src="https://openweathermap.org/img/wn/10d@2x.png"
+                        alt= "Clear"
+                        id="iconFuture"
+                        class="float-center">
+                    </li>
+                    <li> Day 5</li>
+                    <li>description</li>
+                    <li><span><a id="temp-max">tmx</a> |
+                    <a id="temp-min">tmn</a></span></li>
+                  </ul>
+              </div>
+              <div class="col-2">
+                 <ul id="forecast-day6">
+                    <li><img src="https://openweathermap.org/img/wn/10d@2x.png"
+                        alt= "Clear"
+                        id="iconFuture"
+                        class="float-center">
+                    </li>
+                    <li> Day 6</li>
+                    <li>description</li>
+                    <li><span><a id="temp-max">tmx</a> |
+                    <a id="temp-min">tmn</a></span></li>
+                  </ul>
+              </div>
+              <div class="col-2">
+                <ul id="forecast-day7">
+                    <li><img src="https://openweathermap.org/img/wn/10d@2x.png"
+                        alt= "Clear"
+                        id="iconFuture"
+                        class="float-center">
+                    </li>
+                    <li> Day 7</li>
+                    <li>description</li>
+                    <li><span><a id="temp-max">tmx</a> |
+                    <a id="temp-min">tmn</a></span></li>
+                  </ul>
+              </div>
+              <div class="col-2">
+                 <ul id="forecast-day8">
+                    <li><img src="https://openweathermap.org/img/wn/10d@2x.png"
+                        alt= "Clear"
+                        id="iconFuture"
+                        class="float-center">
+                    </li>
+                    <li> Day 8</li>
+                    <li>description</li>
+                    <li><span><a id="temp-max">tmx</a> |
+                    <a id="temp-min">tmn</a></span></li>
+                  </ul>
+              </div>
             </div>
           </div>
         </div>
