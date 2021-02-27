@@ -52,14 +52,17 @@ function currentTemperature(response) {
 	let humidityElement = document.querySelector("#humidity");
 	let windspeedElement = document.querySelector("#speed");
 	let iconElement = document.querySelector("#icon");
-	temperatureElement.innerHTML = Math.round(response.data.main.temp);
+
+	celciusDisp = response.data.main.temp;
+
+	temperatureElement.innerHTML = Math.round(celciusDisp);
 	cityElement.innerHTML = response.data.name;
 	descriptionElement.innerHTML = response.data.weather[0].description;
 	humidityElement.innerHTML = response.data.main.humidity;
 	windspeedElement.innerHTML = Math.round(response.data.wind.speed);
 	iconElement.setAttribute(
 		"src",
-		`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+		`https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
 	);
 }
 
@@ -68,7 +71,7 @@ let units = "metric";
 
 let apiKey = "350541b21f9e750e54359106bf7f6f0d";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-
+//https://api.openweathermap.org/data/2.5/forecast?q=London,GB&appid=70b7d9657fab85757e7a28d70b47e52f
 axios.get(apiUrl).then(currentTemperature);
 
 function searchWeather(city) {
@@ -95,7 +98,6 @@ form.addEventListener("submit", searchCity);
 
 //for location-button
 function showPosition(position) {
-	console.log(position.coords.lat);
 	let latitude = position.coords.latitude;
 	let longitude = position.coords.longitude;
 	let units = "metric";
@@ -110,3 +112,31 @@ function getPosition(event) {
 
 let btnCurrent = document.querySelector("#location-button");
 btnCurrent.addEventListener("click", getPosition);
+
+function showFahrenheitTemp(event) {
+	event.preventDefault();
+	let temperatureElement = document.querySelector("#temperature");
+
+	celciusLink.classList.remove("working");
+	fahrenheitLink.classList.add("working");
+
+	let fahrenheitDisp = (celciusDisp * 9) / 5 + 32;
+	temperatureElement.innerHTML = Math.round(fahrenheitDisp);
+}
+
+let celciusDisp = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemp);
+
+function showCelciusTemp(event) {
+	event.preventDefault();
+	celciusLink.classList.add("working");
+	fahrenheitLink.classList.remove("working");
+
+	let temperatureElement = document.querySelector("#temperature");
+	temperatureElement.innerHTML = Math.round(celciusDisp);
+}
+
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", showCelciusTemp);

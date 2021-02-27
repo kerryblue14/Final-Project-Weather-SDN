@@ -97,7 +97,16 @@ p {
 .units {
 	position: relative;
 	font-size: 16px;
+}
 
+.units .working {
+	color: rgb(27, 26, 26);
+	cursor: default;
+	text-decoration: none;
+	font-weight: bolder;
+}
+
+.units .working:hover {
 	text-decoration: none;
 }
 
