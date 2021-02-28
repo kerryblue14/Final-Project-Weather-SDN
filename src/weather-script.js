@@ -26,6 +26,17 @@ function formatDate(timestamp) {
 	];
 
 	let day = days[date.getDay()];
+	let month = months[date.getMonth()];
+	let dayDate = [date.getDate()];
+	return (currentDate = `${day}, ${dayDate} ${month} ${formatTime(timestamp)}`);
+}
+
+let now = new Date();
+let currentDate = document.querySelector("#date");
+currentDate.innerHTML = formatDate(now);
+
+function formatTime(timestamp) {
+	let date = new Date(timestamp);
 	let hour = [date.getHours()];
 	if (hour < 10) {
 		hour = "0" + hour;
@@ -34,21 +45,14 @@ function formatDate(timestamp) {
 	if (minute < 10) {
 		minute = "0" + minute;
 	}
-	let month = months[date.getMonth()];
-	let dayDate = [date.getDate()];
-	return (currentDate = `${day}, ${dayDate} ${month} ${hour}:${minute}`);
+	return `${hour}:${minute}`;
 }
 
-let now = new Date();
-let currentDate = document.querySelector("#date");
-currentDate.innerHTML = formatDate(now);
-
 function currentTemperature(response) {
-	console.log(response.data);
+	//console.log(response.data);
 	let temperatureElement = document.querySelector("#temperature");
 	let cityElement = document.querySelector("#submitCity");
 	let descriptionElement = document.querySelector("#description");
-	let precipitationElement = document.querySelector("#precipitation");
 	let feelingElement = document.querySelector("#feeling");
 	let humidityElement = document.querySelector("#humidity");
 	let windspeedElement = document.querySelector("#speed");
@@ -68,19 +72,40 @@ function currentTemperature(response) {
 	);
 }
 
-let city = "London";
-let units = "metric";
+function displaySearchForecast(response) {
+	let weatherforecastElement = document.querySelector("#weatherforecast");
+	weatherforecastElement.innerHTML = null;
+	let forecast = null;
 
-let apiKey = "350541b21f9e750e54359106bf7f6f0d";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-//https://api.openweathermap.org/data/2.5/forecast?q=London,GB&appid=70b7d9657fab85757e7a28d70b47e52f
-axios.get(apiUrl).then(currentTemperature);
+	for (let index = 0; index < 6; index++) {
+		forecast = response.data.list[index];
+		weatherforecastElement.innerHTML += `
+		<div class="col-2">
+		<ul id="forecast-day3">
+				<li><img src="https://openweathermap.org/img/wn/${
+					forecast.weather[0].icon
+				}@2x.png"
+					id="iconFuture" class="float-center"></li>
+				<li id="forehours">${formatTime(forecast.dt * 1000)}</li>
+				<li id="foreDes">${forecast.weather[0].description}</li>
+				<li id= maxmin> <span><a id="temp-max">${Math.round(
+					forecast.main.temp_max
+				)}°</a> |
+				<a id="temp-min">${Math.round(forecast.main.temp_min)}°</a></span></li>
+			</ul>                            
+		</div>
+		`;
+	}
+}
 
 function searchWeather(city) {
 	let apiKey = "350541b21f9e750e54359106bf7f6f0d";
 	let units = "metric";
 	let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
 	axios.get(apiUrl).then(currentTemperature);
+
+	apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=${units}`;
+	axios.get(apiUrl).then(displaySearchForecast);
 }
 
 function searchCity(event) {
@@ -106,6 +131,10 @@ function showPosition(position) {
 	let apiKey = "350541b21f9e750e54359106bf7f6f0d";
 	let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
 	axios.get(apiUrl).then(currentTemperature);
+	// after this runs add
+	//forecast apiUrl and new axios command to call up for cast using the coords then call the function displayLocationForecast
+	apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,minutely,hourly&appid=${apiKey}&units=metric`;
+	axios.get(apiUrl).then(displayLocationForecast);
 }
 function getPosition(event) {
 	event.preventDefault();
@@ -115,6 +144,36 @@ function getPosition(event) {
 let btnCurrent = document.querySelector("#location-button");
 btnCurrent.addEventListener("click", getPosition);
 
+// for updating forecast for the current location
+function displayLocationForecast(response) {
+	console.log(response.data.list);
+
+	let weatherforecastElement = document.querySelector("#weatherforecast");
+	weatherforecastElement.innerHTML = null;
+	let forecast = null;
+
+	for (let index = 0; index < 6; index++) {
+		forecast = response.data.list[index];
+		weatherforecastElement.innerHTML += `
+		<div class="col-2">
+		<ul id="forecast-day3">
+				<li><img src="https://openweathermap.org/img/wn/${
+					forecast.weather[0].icon
+				}@2x.png"
+					id="iconFuture" class="float-center"></li>
+				<li id="forehours">${formatTime(forecast.dt * 1000)}</li>
+				<li id="foreDes">${forecast.weather[0].description}</li>
+				<li id= maxmin> <span><a id="temp-max">${Math.round(
+					forecast.main.temp_max
+				)}°</a> |
+				<a id="temp-min">${Math.round(forecast.main.temp_min)}°</a></span></li>
+			</ul>                            
+		</div>
+		`;
+	}
+}
+
+//for unit conversion
 function showFahrenheitTemp(event) {
 	event.preventDefault();
 	let temperatureElement = document.querySelector("#temperature");
@@ -126,11 +185,6 @@ function showFahrenheitTemp(event) {
 	temperatureElement.innerHTML = Math.round(fahrenheitDisp);
 }
 
-let celciusDisp = null;
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", showFahrenheitTemp);
-
 function showCelciusTemp(event) {
 	event.preventDefault();
 	celciusLink.classList.add("working");
@@ -140,5 +194,21 @@ function showCelciusTemp(event) {
 	temperatureElement.innerHTML = Math.round(celciusDisp);
 }
 
+searchWeather("london");
+
+let celciusDisp = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemp);
+
 let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", showCelciusTemp);
+
+// code below for tidy up --- dont forget to remove
+//let city = "London";
+//let units = "metric";
+
+//let apiKey = "350541b21f9e750e54359106bf7f6f0d";
+//let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+//https://api.openweathermap.org/data/2.5/forecast?q=London,GB&appid=70b7d9657fab85757e7a28d70b47e52f
+//axios.get(apiUrl).then(currentTemperature);

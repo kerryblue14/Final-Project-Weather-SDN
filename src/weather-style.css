@@ -71,7 +71,7 @@ p {
 	margin: 0 auto;
 }
 
-.forecast {
+#weatherforecast {
 	background-color: rgba(255, 255, 255, 0.386);
 	border: rgb(10, 10, 94);
 	margin: 10px 10px 10px 10px;
@@ -110,17 +110,18 @@ p {
 	text-decoration: none;
 }
 
-.forecast .forecast-day3 {
+.weather-forecast {
 	position: absolute;
 	top: 40px;
 	left: 20px;
 }
 
 #iconFuture {
-	max-width: 70px;
+	max-width: 60px;
 	position: relative;
 }
-.forecast li {
+#weatherforecast li {
 	line-height: 1;
 	top: -10px;
+	text-align: center;
 }
