@@ -80,7 +80,7 @@ function displaySearchForecast(response) {
 	for (let index = 0; index < 6; index++) {
 		forecast = response.data.list[index];
 		weatherforecastElement.innerHTML += `
-		<div class="col-2">
+		<div class="col-2 float" id="forcastbox">
 		<ul id="forecast-day3">
 				<li><img src="https://openweathermap.org/img/wn/${
 					forecast.weather[0].icon
@@ -123,7 +123,7 @@ function searchCity(event) {
 let form = document.querySelector("#city-selector");
 form.addEventListener("submit", searchCity);
 
-//for location-button
+//for location-button and calling the api for the forecast
 function showPosition(position) {
 	let latitude = position.coords.latitude;
 	let longitude = position.coords.longitude;
@@ -131,11 +131,11 @@ function showPosition(position) {
 	let apiKey = "350541b21f9e750e54359106bf7f6f0d";
 	let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
 	axios.get(apiUrl).then(currentTemperature);
-	// after this runs add
-	//forecast apiUrl and new axios command to call up for cast using the coords then call the function displayLocationForecast
-	apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,minutely,hourly&appid=${apiKey}&units=metric`;
+
+	apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
 	axios.get(apiUrl).then(displayLocationForecast);
 }
+
 function getPosition(event) {
 	event.preventDefault();
 	navigator.geolocation.getCurrentPosition(showPosition);
@@ -155,7 +155,7 @@ function displayLocationForecast(response) {
 	for (let index = 0; index < 6; index++) {
 		forecast = response.data.list[index];
 		weatherforecastElement.innerHTML += `
-		<div class="col-2">
+		<div class="col-2 float-left" id="locationForcastBox">
 		<ul id="forecast-day3">
 				<li><img src="https://openweathermap.org/img/wn/${
 					forecast.weather[0].icon
@@ -203,12 +203,3 @@ fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 
 let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", showCelciusTemp);
-
-// code below for tidy up --- dont forget to remove
-//let city = "London";
-//let units = "metric";
-
-//let apiKey = "350541b21f9e750e54359106bf7f6f0d";
-//let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-//https://api.openweathermap.org/data/2.5/forecast?q=London,GB&appid=70b7d9657fab85757e7a28d70b47e52f
-//axios.get(apiUrl).then(currentTemperature);
