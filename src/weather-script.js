@@ -80,20 +80,20 @@ function displaySearchForecast(response) {
 	for (let index = 0; index < 6; index++) {
 		forecast = response.data.list[index];
 		weatherforecastElement.innerHTML += `
-		<div class="col-2 float" id="forcastbox">
-		<ul id="forecast-day3">
-				<li><img src="https://openweathermap.org/img/wn/${
-					forecast.weather[0].icon
-				}@2x.png"
-					id="iconFuture" class="float-center"></li>
-				<li id="forehours">${formatTime(forecast.dt * 1000)}</li>
-				<li id="foreDes">${forecast.weather[0].description}</li>
-				<li id= maxmin> <span><a id="temp-max">${Math.round(
-					forecast.main.temp_max
-				)}°</a> |
-				<a id="temp-min">${Math.round(forecast.main.temp_min)}°</a></span></li>
-			</ul>                            
-		</div>
+			<div class="col-2 " >
+				<ul id="forecast-day3">
+						<li><img src="https://openweathermap.org/img/wn/${
+							forecast.weather[0].icon
+						}@2x.png"
+							id="iconFuture" class="float-center"></li>
+						<li id="forehours">${formatTime(forecast.dt * 1000)}</li>
+						<li id="foreDes">${forecast.weather[0].description}</li>
+						<li id= maxmin> <span><a id="temp-max">${Math.round(
+							forecast.main.temp_max
+						)}°</a> |
+						<a id="temp-min">${Math.round(forecast.main.temp_min)}°</a></span></li>
+				</ul>                            
+			</div>
 		`;
 	}
 }

@@ -1,6 +1,7 @@
 body {
 	background-image: linear-gradient(to bottom, #5ee7df 0%, #b490ca 100%);
 	margin: 0 auto;
+	height: auto;
 }
 
 .cardBack {
@@ -36,7 +37,7 @@ li {
 p {
 	display: block;
 	margin: 0 auto;
-	padding: 20px;
+	padding: 120px 50px 40px 50px;
 	text-align: center;
 	font-size: 14px;
 }
@@ -112,6 +113,7 @@ p {
 }
 
 #iconFuture {
+	display: block;
 	max-width: 60px;
 	position: relative;
 }
@@ -123,5 +125,7 @@ p {
 }
 
 #forcastbox {
-	position: relative;
+	position: fixed;
+	left: 10px;
+	line-height: 2;
 }
